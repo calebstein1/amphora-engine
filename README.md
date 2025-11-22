@@ -1,26 +1,15 @@
-# Amphora
+# Amphora Engine
 
-Amphora is an advanced game engine for making 2D games.
+Amphora is an advanced game engine for making 2D sprite-based games.
 
 ## Usage
 
-Amphora is distributed in source form and its engine components reside in `src/engine` and `include/engine`.
-This makes it easy to tweak the internals of the engine as needed by the project.
-Non-engine game files are located in `src` and `include`.
-
-Amphora games are written in C or C++ with SDL2 and extra utility functions provided by the engine.
-
-Configuration options can be set in `include/config.h` and `include/colors.h`.
-Resource names and paths are specified in `include/resources.h`.
-
-Note that certain functions that allocate memory, like `Amphora_CreateSprite` may cause stutters in gameplay when built using the Debug configuration.
-These stutters should not exist in the Release configuration.
+This repository contains the code for the Amphora Game Engine library.
 
 ## Building
 
 Amphora uses CMake and vcpkg to build and manage dependencies.
 You'll need to ensure that vcpkg is installed somewhere on your system and that the `VCPKG_ROOT` environment variable is set properly.
-Once that's done, all you'll need to do is add any new files to `add_executable` in `src/CmakeLists.txt`, then you're ready to build your game!
 
 ### Windows
 
@@ -52,5 +41,4 @@ This can be accomplished on Ubuntu/Debian-based systems with the following comma
 ```shell
 sudo apt install libasound2-dev libpulse-dev
 ```
-
-Alternatively, you can modify the build scripts to use system libraries and skip vcpkg altogether, but that's far beyond the scope of this document.
+This system is currently being rewritten to use system libraries instead of vcpkg for Linux builds, so this step will not be necessary in the future.
