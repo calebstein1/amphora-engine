@@ -1,19 +1,7 @@
 #ifndef AMPHORA_SCENES_H
 #define AMPHORA_SCENES_H
 
-#ifdef __cplusplus
-#define Amphora_BeginScene(name) \
-extern "C" { \
-extern void name##_Init(void); \
-extern void name##_Update(Uint32, const InputState *); \
-extern void name##_Destroy(void); \
-};
-#else
-#define Amphora_BeginScene(name) \
-extern void name##_Init(void); \
-extern void name##_Update(Uint32, const InputState *); \
-extern void name##_Destroy(void);
-#endif
+#include "SDL.h"
 
 #ifdef __cplusplus
 extern "C" {
