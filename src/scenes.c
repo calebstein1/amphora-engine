@@ -26,7 +26,7 @@ static SDL_Color fade_color = { 255, 255, 255, 255 };
 static SDL_Rect fade_rect;
 
 int
-Amphora_DoLoadScene(const char *name) {
+Amphora_LoadScene(const char *name) {
 	Vector2 screen_size = Amphora_GetResolution();
 	long idx;
 	int i;
