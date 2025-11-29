@@ -38,7 +38,7 @@ Amphora_RegisterEvent(const char *name, void (*func)(void))
 		{
 			ev_names[i] = Amphora_HeapStrdup(name);
 			HT_StoreRef(name, func, ev_table);
-			HT_SetStatus(name, i, ev_table);
+			HT_SetStatus(name, i ? i : SDL_MIN_SINT32, ev_table);
 			break;
 		}
 	}
@@ -51,7 +51,11 @@ Amphora_UnregisterEvent(const char *name)
 {
 	int i = HT_GetStatus(name, ev_table);
 
-	if (i == -1)
+	if (i == SDL_MIN_SINT32)
+	{
+		i = 0;
+	}
+	else if (i == -1)
 	{
 		Amphora_SetError(AMPHORA_STATUS_FAIL_UNDEFINED, "Event %s is not registered", name);
 		return AMPHORA_STATUS_FAIL_UNDEFINED;
